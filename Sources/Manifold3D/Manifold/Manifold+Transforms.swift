@@ -14,7 +14,7 @@ public extension Manifold {
     }
 
     func rotate(_ rotation: any Vector3) -> Self {
-        Self(mesh.Rotate(rotation.x, rotation.y, rotation.z))
+        Self(mesh.Rotate(Double(rotation.x), Double(rotation.y), Double(rotation.z)))
     }
 
     func mirror(_ normal: any Vector3) -> Self {

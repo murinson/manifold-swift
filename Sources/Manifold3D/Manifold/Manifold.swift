@@ -9,15 +9,19 @@ public struct Manifold: @unchecked Sendable {
 }
 
 public extension Manifold {
-    init(_ meshGL: MeshGL) throws(Error) {
+    init(_ meshGL: MeshGL64) throws(Error) {
         self.init(manifold.Manifold(meshGL.meshGL))
         if isEmpty, let error = self.status {
             throw error
         }
     }
+    
+//    func meshGL(normalChannelIndex: Int = -1) -> MeshGL {
+//        MeshGL(meshGL: mesh.GetMeshGL(Int32(normalChannelIndex)))
+//    }
 
-    func meshGL(normalChannelIndex: Int = -1) -> MeshGL {
-        MeshGL(meshGL: mesh.GetMeshGL64(Int32(normalChannelIndex)))
+    func meshGL64(normalChannelIndex: Int = -1) -> MeshGL64 {
+        MeshGL64(meshGL: mesh.GetMeshGL64(Int32(normalChannelIndex)))
     }
 
     var status: Error? {

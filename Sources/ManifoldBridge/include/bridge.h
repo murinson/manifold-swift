@@ -1,6 +1,8 @@
 #include "manifold/manifold.h"
 
 namespace bridge {
+using vec3f = manifold::la::vec<float, 3>;
+
 manifold::Manifold Warp(const manifold::Manifold& mesh, void(^block)(manifold::vec3&));
 manifold::CrossSection Warp(const manifold::CrossSection& crossSection, void(^block)(manifold::vec2&));
 

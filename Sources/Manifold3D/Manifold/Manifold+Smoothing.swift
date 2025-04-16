@@ -3,7 +3,7 @@ import ManifoldCPP
 import ManifoldBridge
 
 public extension Manifold {
-    init(meshGL: MeshGL, smoothEdges: [MeshGL.EdgeReference: Double]) {
+    init(meshGL: MeshGL64, smoothEdges: [MeshGL64.EdgeReference: Double]) {
         self = Self(manifold.Manifold.Smooth(meshGL.meshGL, .init(smoothEdges.map {
             manifold.Smoothness(halfedge: $0.key.index, smoothness: $0.value)
         })))
