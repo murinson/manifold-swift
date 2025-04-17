@@ -16,9 +16,16 @@ public extension Manifold {
         }
     }
     
-//    func meshGL(normalChannelIndex: Int = -1) -> MeshGL {
-//        MeshGL(meshGL: mesh.GetMeshGL(Int32(normalChannelIndex)))
-//    }
+    init(_ meshGL: MeshGL) throws(Error) {
+        self.init(manifold.Manifold(meshGL.meshGL))
+        if isEmpty, let error = self.status {
+            throw error
+        }
+    }
+    
+    func meshGL(normalChannelIndex: Int = -1) -> MeshGL {
+        MeshGL(meshGL: mesh.GetMeshGL(Int32(normalChannelIndex)))
+    }
 
     func meshGL64(normalChannelIndex: Int = -1) -> MeshGL64 {
         MeshGL64(meshGL: mesh.GetMeshGL64(Int32(normalChannelIndex)))
